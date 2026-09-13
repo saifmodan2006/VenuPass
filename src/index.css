@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #F5F4F0;
+  --bg-surface: #FFFFFF;
+  --bg-secondary: #F0EFEA;
+  --border-main: #DDDCD6;
+  --text-primary: #161616;
+  --text-secondary: #6F6F6A;
+  --accent-main: #E86A00;
+  --accent-dark: #B94D00;
+  --success: #16794C;
+  --warning: #A96500;
+  --danger: #C43D3D;
+  --info: #2864A8;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F5F4F0;
+  color: #161616;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Custom editorial scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0EFEA;
+}
+::-webkit-scrollbar-thumb {
+  background: #C2C0B6;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9E9D97;
+}
+
+/* Operational Scanner scrollbar */
+.dark-scanner ::-webkit-scrollbar-track {
+  background: #0E0F10;
+}
+.dark-scanner ::-webkit-scrollbar-thumb {
+  background: #2A2D30;
+}
+.dark-scanner ::-webkit-scrollbar-thumb:hover {
+  background: #404448;
+}
+
+/* Editorial grid pattern for hero section */
+.editorial-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* Pass card subtle reflection */
+.pass-reflection {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(232, 106, 0, 0.04) 100%
+  );
+}
+
+/* Status dots */
+.status-dot-pulse {
+  animation: statusPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.9); }
+}
+
+/* HTML5 QR Code Video Frame */
+#html5-scanner-stream {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#html5-scanner-stream video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 8px;
+}
+
+/* Scanner laser animation */
+@keyframes laserScan {
+  0% { top: 12%; }
+  50% { top: 88%; }
+  100% { top: 12%; }
+}
+
+.animate-scan {
+  animation: laserScan 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
